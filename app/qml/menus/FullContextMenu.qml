@@ -32,6 +32,10 @@ Menu {
         action: showsettingsAction
     }
 
+    MenuItem {
+        action: resetTerminalAction
+    }
+
     Menu {
         title: qsTr("File")
         MenuItem {
