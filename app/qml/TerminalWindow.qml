@@ -81,6 +81,10 @@ ApplicationWindow {
         }
     }
     Action {
+       id: resetTerminalAction
+       text: qsTr("Reset")
+    }
+    Action {
         id: copyAction
         text: qsTr("Copy")
         shortcut: appSettings.isMacOS ? StandardKey.Copy : "Ctrl+Shift+C"

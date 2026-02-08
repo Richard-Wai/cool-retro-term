@@ -89,6 +89,7 @@ Item{
     }
 
     QMLTermWidget {
+        // This is qmltermwidget/lib/TerminalDisplay!
         id: kterminal
 
         property int textureResolutionScale: appSettings.lowResolutionFont ? Screen.devicePixelRatio : 1
@@ -119,6 +120,14 @@ Item{
 
             onFinished: {
                 terminalContainer.sessionFinished()
+            }
+        }
+
+        Connections {
+            target: resetTerminalAction
+
+            onTriggered: {
+                  kterminal.clearScreen();
             }
         }
 
