@@ -5,3 +5,7 @@
 [submodule "KDSingleApplication"]
 	path = KDSingleApplication
 	url = https://github.com/KDAB/KDSingleApplication.git
+[submodule "app/qml/fonts/vt220"]
+	path = app/qml/fonts/vt220
+	url = https://github.com/Richard-Wai/glasstty.git
+	branch = master
