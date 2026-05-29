@@ -379,7 +379,7 @@ void FontManager::populateBundledFonts()
         32,
         false);
     addBundledFont(
-        "Glass_TTY_VT220"
+        "Glass_TTY_VT220",
         "VT220",
         ":/fonts/vt220/Glass_TTY_VT220.ttf",
         1.0,
