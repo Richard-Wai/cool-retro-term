@@ -32,6 +32,9 @@ Makefile*
 *.qmlproject.user
 *.qmlproject.user.*
 
+# QSB (Shaders)
+*.qsb
+
 # Others
 
 *.xcf
