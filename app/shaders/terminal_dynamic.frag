@@ -67,22 +67,19 @@ vec3 applyRasterization(vec2 screenCoords, vec3 texel, vec2 virtualRes, float in
 #if CRT_RASTER_MODE == 0 || CRT_RASTER_MODE == 4
     return texel;
 #else
-    if (intensity <= 0.0) {
-        return texel;
-    }
-
-    const float INTENSITY = 0.30;
-    const float BRIGHTBOOST = 0.30;
+    const float INTENSITY = 0.80;
+    const float BRIGHTBOOST = 0.10;
+    const float use_intensity = 0.3;
 
 #if CRT_RASTER_MODE == 1
     vec3 pixelHigh = ((1.0 + BRIGHTBOOST) - (0.2 * texel)) * texel;
     vec3 pixelLow  = ((1.0 - INTENSITY) + (0.1 * texel)) * texel;
 
-    vec2 coords = fract(screenCoords * virtualRes) * 2.0 - vec2(1.0);
+    vec2 coords = fract(screenCoords * virtualRes) * 2.5 - vec2(1.0);
     float mask = 1.0 - abs(coords.y);
 
     vec3 rasterizationColor = mix(pixelLow, pixelHigh, mask);
-    return mix(texel, rasterizationColor, intensity);
+    return mix(texel, rasterizationColor, use_intensity);
 #elif CRT_RASTER_MODE == 2
     vec3 pixelHigh = ((1.0 + BRIGHTBOOST) - (0.2 * texel)) * texel;
     vec3 pixelLow  = ((1.0 - INTENSITY) + (0.1 * texel)) * texel;
@@ -92,7 +89,7 @@ vec3 applyRasterization(vec2 screenCoords, vec3 texel, vec2 virtualRes, float in
     float mask = 1.0 - coords.x - coords.y;
 
     vec3 rasterizationColor = mix(pixelLow, pixelHigh, mask);
-    return mix(texel, rasterizationColor, intensity);
+    return mix(texel, rasterizationColor, use_intensity);
 #elif CRT_RASTER_MODE == 3
     const float SUBPIXELS = 3.0;
     vec3 offsets = vec3(3.141592654) * vec3(0.5, 0.5 - 2.0 / 3.0, 0.5 - 4.0 / 3.0);
@@ -109,7 +106,7 @@ vec3 applyRasterization(vec2 screenCoords, vec3 texel, vec2 virtualRes, float in
     float mask = 1.0 - abs(coords.y);
 
     vec3 rasterizationColor = mix(pixelLow, pixelHigh, mask);
-    return mix(texel, rasterizationColor, intensity);
+    return mix(texel, rasterizationColor, use_intensity);
 #else
     return texel;
 #endif
