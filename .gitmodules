@@ -1,6 +1,6 @@
 [submodule "qmltermwidget"]
 	path = qmltermwidget
-	url = https://github.com:Richard-Wai/qmltermwidget.git
+	url = https://github.com/Richard-Wai/qmltermwidget.git
 	branch = master
 [submodule "KDSingleApplication"]
 	path = KDSingleApplication
